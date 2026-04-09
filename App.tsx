@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Check, Mail, Sparkles } from "lucide-react";
 
-const founderImage = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAMgCAIAAABUEpE/AAAgAElEQVR42uy92ZIkyZId5mbmS0Rk1tK3ZYChCGWGwk8BPgD8Ngr5MbAT4SDwA+AnwE+AMFYXX4wqV6q7qkREZGRm5r1fVf1zT3ePjIjMyMiI93h4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHi4v7x9A3u4d8P1+u7f7+8fP379+vXr16/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv36/ff3L7C7w6Y7Y9mWZVnG5/N5nU5nWZZlWc7nM5/P53EcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4fD4/8w3m0h9m2bJk2bdu2bdv2+Xy+Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1+v3f7f4bQ4f3V8v//+c3r06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06PH/AAABAAEAAP8A/9k=";
+const founderImage = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAMgCAIAAABUEpE/AAAgAElEQVR42uy92ZIkyZId5mbmS0Rk1tK3ZYChCGWGwk8BPgD8Ngr5MbAT4SDwA+AnwE+AMFYXX4wqV6q7qkREZGRm5r1fVf1zT3ePjIjMyMiI93h4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHi4v7x9A3u4d8P1+u7f7+8fP379+vXr16/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv369evXr1+/fv36/ff3L7C7w6Y7Y9mWZVnG5/N5nU5nWZZlWc7nM5/P53EcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4fD4/8w3m0h9m2bJk2bdu2bdv2+Xy+Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1er1er9fr9Xq9Xq/X6/V6vV6v1+v1+v3f7f4bQ4f3V8v//+c3r06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06NGjR48ePXr06PH/AAABAAEAAP8A/9k=";
 
 const packages = [
   {
@@ -80,50 +80,42 @@ const process = [
   },
 ];
 
+const engagements = [
+  {
+    label: "Strategy",
+    name: "Operational Reset",
+    price: "Starting at $7,500",
+    body: "Best for organizations that need a stronger operating structure, clearer ownership, and a more functional internal rhythm.",
+  },
+  {
+    label: "Systems",
+    name: "Workflow & Process Design",
+    price: "Starting at $5,000",
+    body: "Best when work is getting stuck in handoffs, approvals, or unclear systems and you need a cleaner path forward.",
+  },
+  {
+    label: "Support",
+    name: "Strategic Advisory",
+    price: "Starting at $3,000/month",
+    body: "Best for leaders who want ongoing thought partnership, decision support, and a steady operations mind in the room.",
+  },
+];
+
 function IntroOverlay({ show }: { show: boolean }) {
   return (
     <AnimatePresence>
       {show && (
-        <motion.div
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="intro-overlay"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-            className="intro-center"
-          >
-            <motion.p
-              initial={{ opacity: 0, letterSpacing: "0.35em" }}
-              animate={{ opacity: 1, letterSpacing: "0.22em" }}
-              transition={{ duration: 1.1, delay: 0.1 }}
-              className="intro-kicker"
-            >
+        <motion.div initial={{ opacity: 1 }} exit={{ opacity: 0 }} className="intro-overlay">
+          <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }} className="intro-center">
+            <motion.p initial={{ opacity: 0, letterSpacing: "0.35em" }} animate={{ opacity: 1, letterSpacing: "0.22em" }} transition={{ duration: 1.1, delay: 0.1 }} className="intro-kicker">
               SoftPowerWorks
             </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.2 }}
-              className="intro-title display"
-            >
+            <motion.h1 initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2 }} className="intro-title display">
               Systems that fit people.
             </motion.h1>
-            <motion.div
-              initial={{ width: 0, opacity: 0 }}
-              animate={{ width: 180, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="intro-line"
-            />
+            <motion.div initial={{ width: 0, opacity: 0 }} animate={{ width: 180, opacity: 1 }} transition={{ duration: 0.8, delay: 0.5 }} className="intro-line" />
           </motion.div>
-          <motion.div
-            initial={{ y: 0 }}
-            animate={{ y: "100%" }}
-            transition={{ duration: 0.95, delay: 1.7, ease: [0.76, 0, 0.24, 1] }}
-            className="intro-slide"
-          />
+          <motion.div initial={{ y: 0 }} animate={{ y: "100%" }} transition={{ duration: 0.95, delay: 1.7, ease: [0.76, 0, 0.24, 1] }} className="intro-slide" />
         </motion.div>
       )}
     </AnimatePresence>
@@ -145,19 +137,9 @@ export default function App() {
   return (
     <div className="site-shell">
       <IntroOverlay show={showIntro} />
-
       <section className="hero">
-        <motion.div
-          className="hero-panel"
-          animate={{ x: [0, -12, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="hero-line"
-          animate={{ height: [80, 120, 80], opacity: [0.18, 0.45, 0.18] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        />
-
+        <motion.div className="hero-panel" animate={{ x: [0, -12, 0] }} transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }} />
+        <motion.div className="hero-line" animate={{ height: [80, 120, 80], opacity: [0.18, 0.45, 0.18] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }} />
         <div className="container site-nav-wrap">
           <div className="site-nav">
             <div>
@@ -173,13 +155,7 @@ export default function App() {
         </div>
 
         <div className="container hero-grid">
-          <motion.div
-            initial={{ opacity: 0, y: 36 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="hero-copy"
-          >
+          <motion.div initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.8, ease: "easeOut" }} className="hero-copy">
             <div className="kicker">
               <Sparkles className="kicker-icon" />
               Systems that fit people, support mission, and create room to work well
@@ -190,7 +166,6 @@ export default function App() {
             <p className="hero-body">
               SoftPowerWorks is a strategic consulting firm for founders, executives, and mission-driven organizations that need better ways of working. We help teams create workflows, operating rhythms, and structures that fit the real shape of the work so people can move with more clarity, less friction, and greater trust.
             </p>
-
             <div className="button-row">
               <a className="button button-primary" href="#support">
                 Start a strategic conversation
@@ -200,17 +175,9 @@ export default function App() {
                 Explore the work
               </a>
             </div>
-
             <div className="outcomes-grid">
               {outcomes.map((item, index) => (
-                <motion.div
-                  key={item}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.6, delay: index * 0.08 }}
-                  className="outcome-item"
-                >
+                <motion.div key={item} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, delay: index * 0.08 }} className="outcome-item">
                   <div className="outcome-row">
                     <Check className="check-icon" />
                     <p>{item}</p>
@@ -220,34 +187,17 @@ export default function App() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.85, ease: "easeOut" }}
-            className="hero-card-wrap"
-          >
-            <motion.div
-              className="hero-card-outline"
-              animate={{ y: [0, -10, 0], x: [0, 8, 0] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            />
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.85, ease: "easeOut" }} className="hero-card-wrap">
+            <motion.div className="hero-card-outline" animate={{ y: [0, -10, 0], x: [0, 8, 0] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} />
             <div className="feature-grid">
               <div className="feature-grid-inner">
                 <div className="portrait-wrap">
-                  <motion.img
-                    src={founderImage}
-                    alt="Mia Carr"
-                    className="portrait-image"
-                    animate={{ scale: [1, 1.035, 1], x: [0, -6, 0], y: [0, -8, 0] }}
-                    transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-                  />
+                  <motion.img src={founderImage} alt="Mia Carr" className="portrait-image" animate={{ scale: [1, 1.035, 1], x: [0, -6, 0], y: [0, -8, 0] }} transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }} />
                   <div className="portrait-gradient" />
                   <div className="portrait-caption">
+                    <p className="portrait-kicker">Founder</p>
                     <p className="portrait-name display">Mia Carr</p>
-                    <p className="portrait-text">
-                      Strategic operator, builder of structure, and trusted partner for leaders who want the work to feel stronger without becoming harder to carry.
-                    </p>
+                    <p className="portrait-text">Strategic operator, builder of structure, and trusted partner for leaders who want the work to feel stronger, clearer, and easier to carry.</p>
                   </div>
                 </div>
                 <div className="sidebar-panel">
@@ -255,17 +205,9 @@ export default function App() {
                     <p className="sidebar-kicker">Who this is for</p>
                     <p className="sidebar-title display">Leaders who know the work can run better</p>
                   </div>
-                  <motion.div
-                    className="sidebar-body"
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    <p>
-                      SoftPowerWorks is for leaders who can feel the drag in the work, even if they have not fully named the problem yet.
-                    </p>
-                    <p>
-                      It is especially useful for founder-led firms, consultancies, nonprofits, and high-accountability teams that need stronger ways of working without making the organization feel heavier.
-                    </p>
+                  <motion.div className="sidebar-body" animate={{ y: [0, -5, 0] }} transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}>
+                    <p>SoftPowerWorks is for leaders who can feel the drag in the work, even if they have not fully named the problem yet.</p>
+                    <p>It is especially useful for founder-led firms, consultancies, nonprofits, and high-accountability teams that need stronger ways of working without making the organization feel heavier.</p>
                   </motion.div>
                 </div>
               </div>
@@ -277,32 +219,15 @@ export default function App() {
       <section id="systems" className="section alt">
         <div className="container">
           <div className="two-col">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.7 }}
-            >
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.7 }}>
               <SectionLabel>Proof</SectionLabel>
-              <h2 className="section-title display">
-                Clients should be able to feel the difference in how the work moves.
-              </h2>
-              <p className="section-body max-text">
-                These responses reflect what happens when the right structure is in place. The work gets clearer, lighter, and more effective.
-              </p>
+              <h2 className="section-title display">Clients should be able to feel the difference in how the work moves.</h2>
+              <p className="section-body max-text">These responses reflect what happens when the right structure is in place. The work gets clearer, lighter, and more effective.</p>
             </motion.div>
 
             <div className="quote-grid">
               {quotes.map((quote, index) => (
-                <motion.div
-                  key={quote.name}
-                  initial={{ opacity: 0, y: 26 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.65, delay: index * 0.1 }}
-                  animate={{ y: index === 1 ? [0, 6, 0] : [0, -4, 0] }}
-                  className="panel"
-                >
+                <motion.div key={quote.name} initial={{ opacity: 0, y: 26 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.65, delay: index * 0.1 }} animate={{ y: index === 1 ? [0, 6, 0] : [0, -4, 0] }} className="panel">
                   <p className="quote-text display">“{quote.text}”</p>
                   <p className="quote-meta">{quote.name}, {quote.org}</p>
                 </motion.div>
@@ -315,32 +240,15 @@ export default function App() {
       <section id="strategy" className="section">
         <div className="container">
           <div className="two-col strategy-cols">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.7 }}
-            >
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.7 }}>
               <SectionLabel>Approach</SectionLabel>
-              <h2 className="section-title display">
-                The job is not to force a system into place. The job is to build one that fits.
-              </h2>
-              <p className="section-body">
-                SoftPowerWorks starts by understanding where friction is actually coming from. From there, we build structures, workflows, and rhythms that support the people doing the work and make the mission easier to carry.
-              </p>
+              <h2 className="section-title display">The job is not to force a system into place. The job is to build one that fits.</h2>
+              <p className="section-body">SoftPowerWorks starts by understanding where friction is actually coming from. From there, we build structures, workflows, and rhythms that support the people doing the work and make the mission easier to carry.</p>
             </motion.div>
 
             <div className="process-grid">
               {process.map((item, index) => (
-                <motion.div
-                  key={item.step}
-                  initial={{ opacity: 0, x: 24 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.6, delay: index * 0.08 }}
-                  whileHover={{ x: 8 }}
-                  className="panel process-panel"
-                >
+                <motion.div key={item.step} initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6, delay: index * 0.08 }} whileHover={{ x: 8 }} className="panel process-panel">
                   <div className="process-step">{item.step}</div>
                   <div>
                     <h3 className="process-title display">{item.title}</h3>
@@ -355,29 +263,28 @@ export default function App() {
 
       <section className="section alt">
         <div className="container">
+          <div className="engagements-grid">
+            {engagements.map((item, index) => (
+              <motion.div key={item.name} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6, delay: index * 0.08 }} className="panel engagement-panel">
+                <p className="engagement-label">{item.label}</p>
+                <p className="engagement-name display">{item.name}</p>
+                <p className="engagement-price">{item.price}</p>
+                <p className="engagement-body">{item.body}</p>
+              </motion.div>
+            ))}
+          </div>
+
           <div className="packages-header">
             <div>
               <SectionLabel>Packages</SectionLabel>
-              <h2 className="section-title display">
-                Different levels of support for different stages of the work.
-              </h2>
+              <h2 className="section-title display">Different levels of support for different stages of the work.</h2>
             </div>
-            <p className="packages-summary">
-              Start with a focused engagement, move into a deeper reset, or bring SoftPowerWorks in for ongoing support once the systems are in motion.
-            </p>
+            <p className="packages-summary">Start with a focused engagement, move into a deeper reset, or bring SoftPowerWorks in for ongoing support once the systems are in motion.</p>
           </div>
 
           <div className="packages-grid">
             {packages.map((pkg, index) => (
-              <motion.div
-                key={pkg.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.65, delay: index * 0.08 }}
-                whileHover={{ y: -8 }}
-                className="panel package-panel"
-              >
+              <motion.div key={pkg.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.65, delay: index * 0.08 }} whileHover={{ y: -8 }} className="panel package-panel">
                 <p className="package-title display">{pkg.name}</p>
                 <p className="package-subtitle">{pkg.subtitle}</p>
                 <p className="package-example">{pkg.example}</p>
@@ -398,47 +305,25 @@ export default function App() {
       <section id="support" className="section">
         <div className="container">
           <div className="support-grid">
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.75 }}
-              className="panel support-copy"
-            >
+            <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.75 }} className="panel support-copy">
               <SectionLabel>Support</SectionLabel>
-              <h2 className="section-title display">
-                Soft power means creating the conditions for people and teams to do their best work.
-              </h2>
-              <p className="section-body">
-                SoftPowerWorks helps organizations create systems that feel considered, usable, and human. We are brought in when the mission is strong, the vision is clear, and the team needs more support around how the work is carried.
-              </p>
-              <p className="section-body">
-                Our work sits at the intersection of strategy, operations, and executive support. We care about what gets built, how it feels to carry, and whether it gives leaders and teams more room to contribute well.
-              </p>
+              <h2 className="section-title display">Soft power means creating the conditions for people and teams to do their best work.</h2>
+              <p className="section-body">SoftPowerWorks helps organizations create systems that feel considered, usable, and human. We are brought in when the mission is strong, the vision is clear, and the team needs more support around how the work is carried.</p>
+              <p className="section-body">Our work sits at the intersection of strategy, operations, and executive support. We care about what gets built, how it feels to carry, and whether it gives leaders and teams more room to contribute well.</p>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.75, delay: 0.08 }}
-              className="panel support-contact"
-            >
+            <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.75, delay: 0.08 }} className="panel support-contact">
               <SectionLabel>Contact</SectionLabel>
               <h2 className="contact-title display">Let’s talk.</h2>
-              <p className="section-body">
-                If you know the work could be running better, this is the place to start. SoftPowerWorks offers focused advisory, project-based consulting, and ongoing strategic operations support.
-              </p>
+              <p className="section-body">If you know the work could be running better, this is the place to start. SoftPowerWorks offers focused advisory, project-based consulting, and ongoing strategic operations support.</p>
               <div className="contact-stack">
                 <div className="contact-row">
                   <Mail className="contact-icon" />
-                  <span>hello@softpowerworks.us</span>
+                  <span>admin@softpowerworks.org</span>
                 </div>
-                <div className="contact-note">
-                  Selective engagements for founders, executives, and mission-driven teams.
-                </div>
+                <div className="contact-note">Selective engagements for founders, executives, and mission-driven teams.</div>
               </div>
-              <a className="button button-primary full-width" href="mailto:hello@softpowerworks.us?subject=SoftPowerWorks%20Inquiry">
+              <a className="button button-primary full-width" href="mailto:admin@softpowerworks.org?subject=SoftPowerWorks%20Inquiry">
                 Inquire about working together
                 <ArrowRight className="button-icon" />
               </a>
