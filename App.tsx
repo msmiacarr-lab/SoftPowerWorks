@@ -306,11 +306,11 @@ export default function App() {
           >
             <div className="feature-grid">
               <div className="feature-grid-inner">
-                <div
+               <div
   className="portrait-wrap"
   style={{
     width: "100%",
-    height: "220px",
+    height: "150px",
     overflow: "hidden",
     background: "#111111",
     position: "relative",
@@ -322,29 +322,22 @@ export default function App() {
     style={{
       width: "100%",
       height: "100%",
-      objectFit: "cover",
+      objectFit: "contain",
       objectPosition: "center top",
       display: "block",
+      background: "#111111",
     }}
   />
-                  <div
-                    className="portrait-caption"
-                    style={{
-                      padding: "0.5rem",
-                      background: "rgba(0,0,0,0.75)",
-                    }}
-                  >
-                    <p className="portrait-kicker">Founder</p>
-                    <p
-                      className="portrait-name display"
-                      style={{ fontSize: "1.1rem", marginTop: "0.1rem" }}
-                    >
-                      Mia Carr
-                    </p>
-                  </div>
-                </div>
-
-                <div className="sidebar-panel">
+</div>
+<div style={{ marginTop: "0.45rem" }}>
+  <p className="portrait-kicker">Founder</p>
+  <p
+    className="portrait-name display"
+    style={{ fontSize: "1rem", marginTop: "0.1rem" }}
+  >
+    Mia Carr
+  </p>
+</div>                <div className="sidebar-panel">
                   <div className="sidebar-heading">
                     <p className="sidebar-kicker">Who this is for</p>
                     <p className="sidebar-title display">
