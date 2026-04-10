@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Check, Mail, Sparkles } from "lucide-react";
 
-const founderImage = "/mia-carr.jpg";
+const founderImage = `${import.meta.env.BASE_URL}mia-carr.jpg`;
 const packages = [
   {
     name: "First Step Intensive",
@@ -305,93 +305,25 @@ export default function App() {
             className="hero-card-wrap"
           >
             <div className="feature-grid">
-           (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/App.tsx b/App.tsx
-index 8da72f94878da1f7103116e7e0517ae602a8131b..a2e1896b15df75f0f013464d97cc2ac4638ae91f 100644
---- a/App.tsx
-+++ b/App.tsx
-@@ -284,60 +284,68 @@ export default function App() {
-                   key={item}
-                   initial={{ opacity: 0, y: 24 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   viewport={{ once: true, amount: 0.3 }}
-                   transition={{ duration: 0.6, delay: index * 0.08 }}
-                   className="outcome-item"
-                 >
-                   <div className="outcome-row">
-                     <Check className="check-icon" />
-                     <p>{item}</p>
-                   </div>
-                 </motion.div>
-               ))}
-             </div>
-           </motion.div>
- 
-           <motion.div
-             initial={{ opacity: 0, y: 40 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true, amount: 0.2 }}
-             transition={{ duration: 0.85, ease: "easeOut" }}
-             className="hero-card-wrap"
-           >
-             <div className="feature-grid">
-               <div className="feature-grid-inner">
--             
--<div style={{ marginTop: "0.45rem" }}>
--  <p className="portrait-kicker">Founder</p>
--  <p
--    className="portrait-name display"
--    style={{ fontSize: "1rem", marginTop: "0.1rem" }}
--  >
--    Mia Carr
--  </p>
--</div>                <div className="sidebar-panel">
-+                <div className="portrait-wrap">
-+                  <img
-+                    src={founderImage}
-+                    alt="Mia Carr, founder of SoftPowerWorks"
-+                    className="portrait-image"
-+                    loading="lazy"
-+                  />
-+                  <div className="portrait-gradient" />
-+                  <div className="portrait-caption">
-+                    <p className="portrait-kicker">Founder</p>
-+                    <p className="portrait-name display">Mia Carr</p>
-+                    <p className="portrait-text">
-+                      Helping mission-driven leaders build practical systems
-+                      that reduce friction and protect capacity.
-+                    </p>
-+                  </div>
-+                </div>
-+                <div className="sidebar-panel">
-                   <div className="sidebar-heading">
-                     <p className="sidebar-kicker">Who this is for</p>
-                     <p className="sidebar-title display">
-                       Leaders who know the work can run better
-                     </p>
-                   </div>
-                   <motion.div
-                     className="sidebar-body"
-                     animate={{ y: [0, -5, 0] }}
-                     transition={{
-                       duration: 9,
-                       repeat: Infinity,
-                       ease: "easeInOut",
-                     }}
-                   >
-                     <p>
-                       SoftPowerWorks is for leaders who can feel the drag in the
-                       work, even if they have not fully named the problem yet.
-                     </p>
-                     <p>
-                       It is especially useful for founder-led firms,
-                       consultancies, nonprofits, and high-accountability teams
-                       that need stronger ways of working without making the
-                       organization feel heavier.
-                     </p>
- 
-EOF
-)                <div className="sidebar-panel">
+              <div className="feature-grid-inner">
+                <div className="portrait-wrap">
+                  <img
+                    src={founderImage}
+                    alt="Mia Carr, founder of SoftPowerWorks"
+                    className="portrait-image"
+                    loading="lazy"
+                  />
+                  <div className="portrait-gradient" />
+                  <div className="portrait-caption">
+                    <p className="portrait-kicker">Founder</p>
+                    <p className="portrait-name display">Mia Carr</p>
+                    <p className="portrait-text">
+                      Helping mission-driven leaders build practical systems
+                      that reduce friction and protect capacity.
+                    </p>
+                  </div>
+                </div>
+                <div className="sidebar-panel">
                   <div className="sidebar-heading">
                     <p className="sidebar-kicker">Who this is for</p>
                     <p className="sidebar-title display">
