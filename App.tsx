@@ -306,29 +306,7 @@ export default function App() {
           >
             <div className="feature-grid">
               <div className="feature-grid-inner">
-               <div
-  className="portrait-wrap"
-  style={{
-    width: "100%",
-    height: "150px",
-    overflow: "hidden",
-    background: "#111111",
-    position: "relative",
-  }}
->
-  <img
-    src={founderImage}
-    alt="Mia Carr"
-    style={{
-      width: "100%",
-      height: "100%",
-      objectFit: "contain",
-      objectPosition: "center top",
-      display: "block",
-      background: "#111111",
-    }}
-  />
-</div>
+             
 <div style={{ marginTop: "0.45rem" }}>
   <p className="portrait-kicker">Founder</p>
   <p
