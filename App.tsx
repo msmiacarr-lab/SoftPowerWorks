@@ -424,7 +424,7 @@ export default function App() {
 
                 <div>
                   <label className="field-label">What is going on?</label>
-                  <textarea name="details" value={formData.details} onChange={handleInputChange} rows=6 className="field textarea" placeholder="Tell me what feels stuck, what is changing, or what kind of support you think you need." />
+                  <textarea name="details" value={formData.details} onChange={handleInputChange} rows={6} className="field textarea" placeholder="Tell me what feels stuck, what is changing, or what kind of support you think you need."></textarea>
                 </div>
               </div>
 
