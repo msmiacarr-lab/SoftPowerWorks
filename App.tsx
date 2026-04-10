@@ -51,7 +51,7 @@ const outcomes = [
 const quotes = [
   {
     text: "You are great at turning my thoughts and dreams into actions and processes.",
-    name: "Paul Penniman",
+    name: "Paul P",
     org: "The Penniman Foundation",
   },
   {
@@ -318,7 +318,7 @@ export default function App() {
                 >
                   <motion.img
                     src={founderImage}
-                    alt="Mia Carr"
+                    alt="Mia TEST 123"
                     style={{
                       width: "100%",
                       height: "170px",
