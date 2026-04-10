@@ -232,7 +232,7 @@ export default function App() {
             <div className="feature-grid">
               <div className="feature-grid-inner">
                 <div className="portrait-wrap">
-                  <motion.img src={founderImage} alt="Mia Carr" className="portrait-image" animate={{ scale: [1, 1.035, 1], x: [0, -6, 0], y: [0, -8, 0] }} transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }} />
+                  <motion.img src={founderImage} alt="Mia Carr" className="portrait-image" animate={{ scale: [1, 1.01, 1], x: [0, -2, 0], y: [0, -3, 0] }} transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }} />
                   <div className="portrait-gradient" />
                   <div className="portrait-caption">
                     <p className="portrait-kicker">Founder</p>
@@ -423,7 +423,7 @@ export default function App() {
 
                 <div>
                   <label className="field-label">What is going on?</label>
-                  <textarea name="details" value={formData.details} onChange={handleInputChange} rows={6} className="field textarea" placeholder="Tell me what feels stuck, what is changing, or what kind of support you think you need." />
+                  <textarea name="details" value={formData.details} onChange={handleInputChange} rows={6} className="field textarea" placeholder="Tell me what feels stuck, what is changing, or what kind of support you need."></textarea>
                 </div>
               </div>
 
