@@ -233,17 +233,44 @@ export default function App() {
             <motion.div className="hero-card-outline" animate={{ y: [0, -10, 0], x: [0, 8, 0] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} />
             <div className="feature-grid">
               <div className="feature-grid-inner">
-                <div className="portrait-wrap">
-                  <motion.img src={founderImage} alt="Mia Carr" className="portrait-image" animate={{ scale: [1, 1.005, 1], x: [0, -1, 0], y: [0, -1, 0] }} transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }} />
-                  <div className="portrait-gradient" />
-                  <div className="portrait-caption">
-                    <p className="portrait-kicker">Founder</p>
-                    <p className="portrait-name display">Mia Carr</p>
-                    <p className="portrait-text">
-                      Strategic operator, builder of structure, and trusted partner for leaders who want the work to feel stronger, clearer, and easier to carry.
-                    </p>
-                  </div>
-                </div>
+                <div
+  className="portrait-wrap"
+  style={{
+    minHeight: "250px",
+    maxHeight: "250px",
+    background: "#111111",
+  }}
+>
+  <motion.img
+    src={founderImage}
+    alt="Mia Carr"
+    style={{
+      width: "100%",
+      height: "250px",
+      objectFit: "contain",
+      objectPosition: "center top",
+      display: "block",
+      background: "#111111",
+      paddingTop: "0.5rem",
+    }}
+  />
+  <div className="portrait-gradient" />
+  <div
+    className="portrait-caption"
+    style={{
+      padding: "0.75rem",
+      background: "rgba(0,0,0,0.65)",
+    }}
+  >
+    <p className="portrait-kicker">Founder</p>
+    <p className="portrait-name display" style={{ fontSize: "1.5rem", marginTop: "0.25rem" }}>
+      Mia Carr
+    </p>
+    <p className="portrait-text" style={{ maxWidth: "18rem", fontSize: "0.82rem", lineHeight: "1.3rem" }}>
+      Strategic operator, builder of structure, and trusted partner for leaders who want the work to feel stronger, clearer, and easier to carry.
+    </p>
+  </div>
+</div>
                 <div className="sidebar-panel">
                   <div className="sidebar-heading">
                     <p className="sidebar-kicker">Who this is for</p>
