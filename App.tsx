@@ -1,12 +1,13 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Check, Mail, Sparkles } from "lucide-react";
+import founderImage from "./assets/mia-carr.jpg";
 
-const founderImage = `${import.meta.env.BASE_URL}mia-carr.jpg`;
 const packages = [
   {
     name: "First Step Intensive",
-    subtitle: "For leaders who know something needs to change, but need the right place to begin.",
+    subtitle:
+      "For leaders who know something needs to change, but need the right place to begin.",
     example:
       "Best when things feel messy, important work is getting stuck, and you need someone to help name the real issue and map the smartest first move.",
     bullets: [
@@ -17,7 +18,8 @@ const packages = [
   },
   {
     name: "Operational Reset",
-    subtitle: "For teams that need stronger structure, cleaner workflows, and more trust in how work moves.",
+    subtitle:
+      "For teams that need stronger structure, cleaner workflows, and more trust in how work moves.",
     example:
       "Best when your team has grown, the work has gotten more complex, and your current systems no longer match how people actually need to work.",
     bullets: [
@@ -28,7 +30,8 @@ const packages = [
   },
   {
     name: "Strategic Operations Retainer",
-    subtitle: "For leaders who want ongoing partnership as they refine, scale, and lead through change.",
+    subtitle:
+      "For leaders who want ongoing partnership as they refine, scale, and lead through change.",
     example:
       "Ideal after implementation, when you need someone to maintain the system, refine it, or step in as a fractional operations partner.",
     bullets: [
@@ -199,7 +202,9 @@ export default function App() {
   }, [formData]);
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -570,8 +575,11 @@ export default function App() {
               <div className="form-grid">
                 <div className="form-two">
                   <div>
-                    <label className="field-label">Name</label>
+                    <label className="field-label" htmlFor="name">
+                      Name
+                    </label>
                     <input
+                      id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
@@ -580,8 +588,11 @@ export default function App() {
                     />
                   </div>
                   <div>
-                    <label className="field-label">Email</label>
+                    <label className="field-label" htmlFor="email">
+                      Email
+                    </label>
                     <input
+                      id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
@@ -593,8 +604,11 @@ export default function App() {
 
                 <div className="form-two">
                   <div>
-                    <label className="field-label">Organization</label>
+                    <label className="field-label" htmlFor="organization">
+                      Organization
+                    </label>
                     <input
+                      id="organization"
                       name="organization"
                       value={formData.organization}
                       onChange={handleInputChange}
@@ -603,8 +617,11 @@ export default function App() {
                     />
                   </div>
                   <div>
-                    <label className="field-label">Type of support</label>
+                    <label className="field-label" htmlFor="inquiryType">
+                      Type of support
+                    </label>
                     <select
+                      id="inquiryType"
                       name="inquiryType"
                       value={formData.inquiryType}
                       onChange={handleInputChange}
@@ -622,8 +639,11 @@ export default function App() {
 
                 <div className="form-two">
                   <div>
-                    <label className="field-label">Budget</label>
+                    <label className="field-label" htmlFor="budget">
+                      Budget
+                    </label>
                     <input
+                      id="budget"
                       name="budget"
                       value={formData.budget}
                       onChange={handleInputChange}
@@ -632,8 +652,11 @@ export default function App() {
                     />
                   </div>
                   <div>
-                    <label className="field-label">Timeline</label>
+                    <label className="field-label" htmlFor="timeline">
+                      Timeline
+                    </label>
                     <input
+                      id="timeline"
                       name="timeline"
                       value={formData.timeline}
                       onChange={handleInputChange}
@@ -644,15 +667,18 @@ export default function App() {
                 </div>
 
                 <div>
-                  <label className="field-label">What is going on?</label>
+                  <label className="field-label" htmlFor="details">
+                    What is going on?
+                  </label>
                   <textarea
+                    id="details"
                     name="details"
                     value={formData.details}
                     onChange={handleInputChange}
                     rows={6}
                     className="field textarea"
                     placeholder="Tell me what feels stuck, what is changing, or what kind of support you need."
-                  ></textarea>
+                  />
                 </div>
               </div>
 
@@ -684,13 +710,13 @@ export default function App() {
               </h2>
               <p className="section-body">
                 SoftPowerWorks helps organizations create systems that feel
-                considered, usable, and human. We are brought in when the
-                mission is strong, the vision is clear, and the team needs more
-                support around how the work is carried.
+                considered, usable, and human. It is brought in when the mission
+                is strong, the vision is clear, and the team needs more support
+                around how the work is carried.
               </p>
               <p className="section-body">
-                Our work sits at the intersection of strategy, operations, and
-                executive support. We care about what gets built, how it feels
+                The work sits at the intersection of strategy, operations, and
+                executive support. It cares about what gets built, how it feels
                 to carry, and whether it gives leaders and teams more room to
                 contribute well.
               </p>
