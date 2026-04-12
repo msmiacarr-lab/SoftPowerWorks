@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Check, Linkedin, Mail, Sparkles } from "lucide-react";
 
@@ -152,20 +152,33 @@ export default function App() {
     timeline: "",
     details: "",
   });
-
-  const inquiryHref = useMemo(() => {
-    const subject = encodeURIComponent(`SoftPowerWorks Inquiry${formData.organization ? ` - ${formData.organization}` : ""}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nOrganization: ${formData.organization}\nInquiry Type: ${formData.inquiryType}\nBudget: ${formData.budget}\nTimeline: ${formData.timeline}\n\nProject Details:\n${formData.details}`
-    );
-    return `mailto:admin@softpowerworks.org?subject=${subject}&body=${body}`;
-  }, [formData]);
+  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus("sending");
+    try {
+      const res = await fetch("https://formspree.io/f/maqawoop", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setFormStatus("success");
+        setFormData({ name: "", email: "", organization: "", inquiryType: "Operational Reset", budget: "", timeline: "", details: "" });
+      } else {
+        setFormStatus("error");
+      }
+    } catch {
+      setFormStatus("error");
+    }
   };
 
   useEffect(() => {
@@ -188,6 +201,7 @@ export default function App() {
               <div className="brand-subtitle">Strategic operations for people-centered teams</div>
             </div>
             <div className="nav-links">
+              <a href="#about">About</a>
               <a href="#strategy">Strategy</a>
               <a href="#systems">Systems</a>
               <a href="#support">Support</a>
@@ -264,8 +278,8 @@ export default function App() {
             <p className="section-label">About</p>
             <h2 className="section-title display">Mia Carr</h2>
             <div className="about-grid">
-              <p className="about-body">Mia Carr is a strategic operator with deep experience helping organizations build the systems and structures that make good work possible. She partners with leaders who are serious about creating clarity, reducing friction, and building teams that can sustain high-quality work without burning out.</p>
-              <p className="about-body">Her approach is grounded in the belief that the right structure should feel lighter, not heavier — and that the best operational work is nearly invisible when it is done well.</p>
+              <p className="about-body">I help mission-driven organizations get out of chaos and into structure that actually works. I'm the person you bring in when there are big ideas, too many moving pieces, and nobody really holding the whole thing together.</p>
+              <p className="about-body">I turn vision into systems, create order without making things feel rigid, and help leaders build organizations that can function well, grow well, and breathe a little.</p>
             </div>
           </motion.div>
         </div>
@@ -393,6 +407,7 @@ export default function App() {
                 Share a little about what is happening in your organization and what kind of support you think you may need. This form opens a prefilled inquiry email to admin@softpowerworks.org.
               </p>
 
+              <form onSubmit={handleSubmit}>
               <div className="form-grid">
                 <div className="form-two">
                   <div>
@@ -439,12 +454,20 @@ export default function App() {
                   <textarea name="details" value={formData.details} onChange={handleInputChange} rows={6} className="field textarea" placeholder="Tell me what feels stuck, what is changing, or what kind of support you think you need."></textarea>
                 </div>
               </div>
+            </form>
 
               <div className="paid-actions">
-                <a href={inquiryHref} className="button button-primary full-width">
-                  Send inquiry
-                  <ArrowRight className="button-icon" />
-                </a>
+                {formStatus === "success" ? (
+                  <p className="form-success">Your inquiry was sent — I'll be in touch soon.</p>
+                ) : (
+                  <>
+                    <button type="submit" disabled={formStatus === "sending"} className="button button-primary full-width">
+                      {formStatus === "sending" ? "Sending…" : "Send inquiry"}
+                      {formStatus !== "sending" && <ArrowRight className="button-icon" />}
+                    </button>
+                    {formStatus === "error" && <p className="form-error">Something went wrong. Try emailing admin@softpowerworks.org directly.</p>}
+                  </>
+                )}
                 <p className="muted-note">I do not offer free consultation calls through the site. Inquiry happens here first.</p>
               </div>
             </motion.div>
