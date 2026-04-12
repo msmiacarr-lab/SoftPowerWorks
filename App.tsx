@@ -188,11 +188,12 @@ export default function App() {
 
   return (
     <div className="site-shell">
+      <a href="#main" className="skip-link">Skip to main content</a>
       <IntroOverlay show={showIntro} />
 
-      <section className="hero">
-        <motion.div className="hero-panel" animate={{ x: [0, -12, 0] }} transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }} />
-        <motion.div className="hero-line" animate={{ height: [80, 120, 80], opacity: [0.18, 0.45, 0.18] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }} />
+      <section id="main" className="hero">
+        <motion.div aria-hidden="true" className="hero-panel" animate={{ x: [0, -12, 0] }} transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }} />
+        <motion.div aria-hidden="true" className="hero-line" animate={{ height: [80, 120, 80], opacity: [0.18, 0.45, 0.18] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }} />
 
         <div className="container site-nav-wrap">
           <div className="site-nav">
@@ -200,12 +201,12 @@ export default function App() {
               <div className="brand display">SoftPowerWorks</div>
               <div className="brand-subtitle">Strategic operations for people-centered teams</div>
             </div>
-            <div className="nav-links">
+            <nav aria-label="Main navigation" className="nav-links">
               <a href="#about">About</a>
               <a href="#strategy">Strategy</a>
               <a href="#systems">Systems</a>
               <a href="#support">Support</a>
-            </div>
+            </nav>
           </div>
         </div>
 
@@ -245,12 +246,12 @@ export default function App() {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.85, ease: "easeOut" }} className="hero-card-wrap">
-            <motion.div className="hero-card-outline" animate={{ y: [0, -10, 0], x: [0, 8, 0] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} />
+            <motion.div aria-hidden="true" className="hero-card-outline" animate={{ y: [0, -10, 0], x: [0, 8, 0] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} />
             <div className="feature-grid">
               <div className="feature-grid-inner">
                 <div className="portrait-wrap">
                   <motion.img src={founderImage} alt="Mia Carr" className="portrait-image" animate={{ scale: [1, 1.005, 1], x: [0, -1, 0], y: [0, -1, 0] }} transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }} />
-                  <div className="portrait-gradient" />
+                  <div className="portrait-gradient" aria-hidden="true" />
                   <div className="portrait-caption">
                     <p className="portrait-kicker">Founder</p>
                     <p className="portrait-name display">Mia Carr</p>
@@ -411,23 +412,23 @@ export default function App() {
               <div className="form-grid">
                 <div className="form-two">
                   <div>
-                    <label className="field-label">Name</label>
-                    <input name="name" value={formData.name} onChange={handleInputChange} className="field" placeholder="Your name" />
+                    <label htmlFor="name" className="field-label">Name</label>
+                    <input id="name" name="name" value={formData.name} onChange={handleInputChange} className="field" placeholder="Your name" />
                   </div>
                   <div>
-                    <label className="field-label">Email</label>
-                    <input name="email" value={formData.email} onChange={handleInputChange} className="field" placeholder="you@company.com" />
+                    <label htmlFor="email" className="field-label">Email</label>
+                    <input id="email" name="email" value={formData.email} onChange={handleInputChange} className="field" placeholder="you@company.com" />
                   </div>
                 </div>
 
                 <div className="form-two">
                   <div>
-                    <label className="field-label">Organization</label>
-                    <input name="organization" value={formData.organization} onChange={handleInputChange} className="field" placeholder="Organization name" />
+                    <label htmlFor="organization" className="field-label">Organization</label>
+                    <input id="organization" name="organization" value={formData.organization} onChange={handleInputChange} className="field" placeholder="Organization name" />
                   </div>
                   <div>
-                    <label className="field-label">Type of support</label>
-                    <select name="inquiryType" value={formData.inquiryType} onChange={handleInputChange} className="field">
+                    <label htmlFor="inquiryType" className="field-label">Type of support</label>
+                    <select id="inquiryType" name="inquiryType" value={formData.inquiryType} onChange={handleInputChange} className="field">
                       <option>First Step Intensive</option>
                       <option>Operational Reset</option>
                       <option>Workflow & Process Design</option>
@@ -440,18 +441,18 @@ export default function App() {
 
                 <div className="form-two">
                   <div>
-                    <label className="field-label">Budget</label>
-                    <input name="budget" value={formData.budget} onChange={handleInputChange} className="field" placeholder="Budget range" />
+                    <label htmlFor="budget" className="field-label">Budget</label>
+                    <input id="budget" name="budget" value={formData.budget} onChange={handleInputChange} className="field" placeholder="Budget range" />
                   </div>
                   <div>
-                    <label className="field-label">Timeline</label>
-                    <input name="timeline" value={formData.timeline} onChange={handleInputChange} className="field" placeholder="When do you want to start?" />
+                    <label htmlFor="timeline" className="field-label">Timeline</label>
+                    <input id="timeline" name="timeline" value={formData.timeline} onChange={handleInputChange} className="field" placeholder="When do you want to start?" />
                   </div>
                 </div>
 
                 <div>
-                  <label className="field-label">What is going on?</label>
-                  <textarea name="details" value={formData.details} onChange={handleInputChange} rows={6} className="field textarea" placeholder="Tell me what feels stuck, what is changing, or what kind of support you think you need."></textarea>
+                  <label htmlFor="details" className="field-label">What is going on?</label>
+                  <textarea id="details" name="details" value={formData.details} onChange={handleInputChange} rows={6} className="field textarea" placeholder="Tell me what feels stuck, what is changing, or what kind of support you think you need."></textarea>
                 </div>
               </div>
             </form>
@@ -490,7 +491,7 @@ export default function App() {
                   <Mail className="contact-icon" />
                   <span>admin@softpowerworks.org</span>
                 </div>
-                <a href="https://www.linkedin.com/in/miacarr-/" target="_blank" rel="noopener noreferrer" className="contact-row contact-link">
+                <a href="https://www.linkedin.com/in/miacarr-/" target="_blank" rel="noopener noreferrer" aria-label="Visit Mia Carr on LinkedIn (opens in new tab)" className="contact-row contact-link">
                   <Linkedin className="contact-icon" />
                   <span>linkedin.com/in/miacarr-</span>
                 </a>
