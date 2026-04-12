@@ -455,7 +455,6 @@ export default function App() {
                   <textarea id="details" name="details" value={formData.details} onChange={handleInputChange} rows={6} className="field textarea" placeholder="Tell me what feels stuck, what is changing, or what kind of support you think you need."></textarea>
                 </div>
               </div>
-            </form>
 
               <div className="paid-actions">
                 {formStatus === "success" ? (
@@ -471,6 +470,7 @@ export default function App() {
                 )}
                 <p className="muted-note">I do not offer free consultation calls through the site. Inquiry happens here first.</p>
               </div>
+            </form>
             </motion.div>
           </div>
 
