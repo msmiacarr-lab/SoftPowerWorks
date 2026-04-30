@@ -198,7 +198,7 @@ export default function App() {
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\nOrganization: ${formData.organization}\nInquiry Type: ${formData.inquiryType}\nBudget: ${formData.budget}\nTimeline: ${formData.timeline}\n\nProject Details:\n${formData.details}`
     );
-    return `mailto:admin@softpowerworks.org?subject=${subject}&body=${body}`;
+    return `mailto:admin@softpowerworks.us?subject=${subject}&body=${body}`;
   }, [formData]);
 
   const handleInputChange = (
@@ -569,7 +569,7 @@ export default function App() {
               <p className="section-body">
                 Share a little about what is happening in your organization and
                 what kind of support you think you may need. This form opens a
-                prefilled inquiry email to admin@softpowerworks.org.
+                prefilled inquiry email to admin@softpowerworks.us.
               </p>
 
               <div className="form-grid">
@@ -739,7 +739,7 @@ export default function App() {
               <div className="contact-stack">
                 <div className="contact-row">
                   <Mail className="contact-icon" />
-                  <span>admin@softpowerworks.org</span>
+                  <span>admin@softpowerworks.us</span>
                 </div>
                 <div className="contact-note">
                   Selective engagements for founders, executives, and
