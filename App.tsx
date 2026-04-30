@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Check, Mail, Sparkles } from "lucide-react";
+import founderImage from "./assets/mia-carr.jpg";
 
 const packages = [
   {
@@ -311,6 +312,12 @@ export default function App() {
             <div className="feature-grid">
               <div className="feature-grid-inner">
                 <div className="portrait-wrap">
+                  <img
+                    src={founderImage}
+                    alt="Mia Carr, founder of SoftPowerWorks"
+                    className="portrait-image"
+                    loading="lazy"
+                  />
                   <div className="portrait-gradient" />
                   <div className="portrait-caption">
                     <p className="portrait-kicker">Founder</p>
