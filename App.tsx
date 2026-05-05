@@ -108,7 +108,7 @@ const engagements = [
 
 const paidCall = {
   name: "First Step Call",
-  price: "$95",
+  price: "$25",
   duration: "20 minutes",
   body: "A focused session for founders, executives, and teams who know something in the work is not flowing the way it should, but need help naming the issue and identifying the smartest next move.",
   bullets: [
