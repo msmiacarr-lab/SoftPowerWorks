@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Check, Mail } from "lucide-react";
-import founderImage from "./assets/mia-carr.jpg";
+
 
 const stats = [
   { number: "10+", label: "Years Operations Leadership" },
@@ -341,7 +341,7 @@ export default function App() {
               <div className="feature-grid-inner">
                 <div className="portrait-wrap">
                   <img
-                    src={founderImage}
+                    src="/mia-carr.jpg"
                     alt="Mia Carr, founder of SoftPowerWorks"
                     className="portrait-image"
                     loading="lazy"
