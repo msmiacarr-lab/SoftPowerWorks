@@ -100,4 +100,33 @@ img { display: block; max-width: 100%; }
 .paid-actions { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
 @media (max-width: 1100px) { .hero-grid, .two-col, .strategy-cols, .support-bottom-grid, .support-top-grid { grid-template-columns: 1fr; } .feature-grid-inner { grid-template-columns: 1fr; } .portrait-wrap { border-right: 0; border-bottom: 1px solid var(--line); } .packages-header { flex-direction: column; align-items: flex-start; } .packages-grid, .quote-grid, .engagements-grid { grid-template-columns: 1fr; } .hero-panel, .hero-line, .hero-card-outline { display: none; } }
 @media (max-width: 720px) { .container { width: min(100% - 32px, 1200px); } .nav-links { display: none; } .outcomes-grid, .form-two { grid-template-columns: 1fr; } .portrait-wrap { min-height: 420px; } .process-panel { grid-template-columns: 1fr; } .button-row { flex-direction: column; } .button { width: 100%; } }
-</details>
+
+/* ── STATS BAR ── */
+.stats-bar { background: var(--bg-alt); border-bottom: 1px solid var(--line); padding-block: 2.5rem; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; border: 1px solid var(--line); background: rgba(255,255,255,.10); }
+.stat-item { background: var(--panel); padding: 1.75rem 1.5rem; display: flex; flex-direction: column; gap: .5rem; }
+.stat-number { font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1; color: var(--text); }
+.stat-label { font-size: .8rem; text-transform: uppercase; letter-spacing: .2em; color: var(--muted); }
+
+/* ── FLOW METHOD ── */
+.flow-header { max-width: 48rem; margin-bottom: 3rem; }
+.flow-intro { max-width: 42rem; }
+.flow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; border: 1px solid var(--line); background: rgba(255,255,255,.10); }
+.flow-card { display: flex; flex-direction: column; gap: .75rem; padding: 2rem 1.5rem; background: var(--panel); }
+.flow-letter { font-size: clamp(3.5rem, 6vw, 5rem); line-height: 1; color: rgba(255,255,255,.12); }
+.flow-phase { margin: 0; font-size: .75rem; text-transform: uppercase; letter-spacing: .22em; color: var(--muted); }
+.flow-title { margin: 0; font-size: 1.5rem; line-height: 1.2; }
+.flow-body { margin: 0; font-size: .92rem; line-height: 1.75rem; color: #d6d3d1; }
+
+/* ── PORTRAIT CREDENTIALS ── */
+.portrait-credentials { margin: .4rem 0 0; font-size: .75rem; letter-spacing: .12em; color: var(--muted); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .flow-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .flow-grid { grid-template-columns: 1fr; }
+}
