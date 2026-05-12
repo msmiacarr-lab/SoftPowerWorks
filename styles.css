@@ -100,3 +100,4 @@ img { display: block; max-width: 100%; }
 .paid-actions { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
 @media (max-width: 1100px) { .hero-grid, .two-col, .strategy-cols, .support-bottom-grid, .support-top-grid { grid-template-columns: 1fr; } .feature-grid-inner { grid-template-columns: 1fr; } .portrait-wrap { border-right: 0; border-bottom: 1px solid var(--line); } .packages-header { flex-direction: column; align-items: flex-start; } .packages-grid, .quote-grid, .engagements-grid { grid-template-columns: 1fr; } .hero-panel, .hero-line, .hero-card-outline { display: none; } }
 @media (max-width: 720px) { .container { width: min(100% - 32px, 1200px); } .nav-links { display: none; } .outcomes-grid, .form-two { grid-template-columns: 1fr; } .portrait-wrap { min-height: 420px; } .process-panel { grid-template-columns: 1fr; } .button-row { flex-direction: column; } .button { width: 100%; } }
+</details>
