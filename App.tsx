@@ -337,45 +337,37 @@ export default function App() {
             transition={{ duration: 0.85, ease: "easeOut" }}
             className="hero-card-wrap"
           >
-            <div className="feature-grid">
-              <div className="feature-grid-inner">
-                <div className="portrait-wrap">
-                  <img
-                    src="/mia-carr.jpg"
-                    alt="Mia Carr, founder of SoftPowerWorks"
-                    className="portrait-image"
-                    loading="lazy"
-                  />
-                  <div className="portrait-gradient" />
-                  <div className="portrait-caption">
-                    <p className="portrait-kicker">Founder</p>
-                    <p className="portrait-name display">Mia Carr</p>
-                    <p className="portrait-credentials">
-                      MPA · Salesforce Admin · Google PM Certificate
-                    </p>
-                  </div>
+            <div className="hero-founder-card">
+              <div className="portrait-wrap portrait-full">
+                <img
+                  src="/mia-carr.jpg"
+                  alt="Mia Carr, founder of SoftPowerWorks"
+                  className="portrait-image"
+                  loading="lazy"
+                />
+                <div className="portrait-gradient" />
+                <div className="portrait-caption">
+                  <p className="portrait-kicker">Founder</p>
+                  <p className="portrait-name display">Mia Carr</p>
+                  <p className="portrait-credentials">
+                    MPA · Salesforce Admin · Google PM Certificate
+                  </p>
                 </div>
-                <div className="sidebar-panel">
-                  <div className="sidebar-heading">
-                    <p className="sidebar-kicker">Who this is for</p>
-                    <p className="sidebar-title display">
-                      Leaders who know the work can run better
-                    </p>
-                  </div>
+              </div>
+              <div className="founder-stats-grid">
+                {stats.map((stat, index) => (
                   <motion.div
-                    className="sidebar-body"
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{
-                      duration: 9,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
+                    key={stat.label}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.08 }}
+                    className="founder-stat"
                   >
-                    <p>
-                      Nonprofits in growth or transition. Founder-led organizations that have outgrown informal systems. Mission-driven teams where the vision is clear but the infrastructure hasn't caught up.
-                    </p>
+                    <span className="founder-stat-number display">{stat.number}</span>
+                    <span className="founder-stat-label">{stat.label}</span>
                   </motion.div>
-                </div>
+                ))}
               </div>
             </div>
           </motion.div>
