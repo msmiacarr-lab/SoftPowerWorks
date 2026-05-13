@@ -372,10 +372,7 @@ export default function App() {
                     }}
                   >
                     <p>
-                      Nonprofits navigating grant compliance, leadership transitions, or rapid growth. Founder-led organizations that have outgrown informal systems. Mission-driven teams where the vision is strong but the infrastructure hasn't caught up.
-                    </p>
-                    <p>
-                      If you can feel the drag in the work — even before you've fully named it — this is where it gets addressed.
+                      Nonprofits in growth or transition. Founder-led organizations that have outgrown informal systems. Mission-driven teams where the vision is clear but the infrastructure hasn't caught up.
                     </p>
                   </motion.div>
                 </div>
