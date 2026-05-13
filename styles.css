@@ -46,12 +46,12 @@ img { display: block; max-width: 100%; }
 .hero-card-outline { position: absolute; right: -1.5rem; top: -1.5rem; display: none; width: 7rem; height: 7rem; border: 1px solid var(--line); }
 .feature-grid { display: grid; gap: 1px; border: 1px solid var(--line); background: rgba(255,255,255,.10); }
 .feature-grid-inner { display: grid; background: var(--panel); grid-template-columns: .68fr .32fr; }
-.portrait-wrap { position: relative; min-height: 330px;
-  max-height: 330px; overflow: hidden; border-right: 1px solid var(--line); }
+.portrait-wrap { position: relative; min-height: 420px;
+  max-height: 420px; overflow: hidden; border-right: 1px solid var(--line); }
 .portrait-image { width: 100%; height: 100%; object-fit: cover;
-  object-position: center top; }
+  object-position: center 15%; }
 .portrait-gradient { position: absolute; inset: 0; background: linear-gradient(to top, var(--bg), transparent 55%); }
-.portrait-caption { position: absolute; left: 0; right: 0; bottom: 0; border-top: 1px solid var(--line); background: rgba(0,0,0,.4); padding: 1rem; backdrop-filter: blur(6px); }
+.portrait-caption { position: absolute; left: 0; right: 0; bottom: 0; border-top: 1px solid var(--line); background: rgba(0,0,0,.55); padding: .75rem 1rem; backdrop-filter: blur(6px); }
 .portrait-kicker, .field-label, .engagement-label { margin: 0; font-size: .75rem; text-transform: uppercase; letter-spacing: .24em; color: var(--muted); }
 .portrait-name, .engagement-name { margin: .5rem 0 0; font-size: 1.7rem; }
 .portrait-text, .engagement-body, .package-subtitle, .package-example, .quote-meta, .process-body, .contact-note, .muted-note, .packages-summary { color: #d6d3d1; }
