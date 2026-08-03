@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Check, Mail } from "lucide-react";
+import { ArrowRight, Check, Mail, Phone } from "lucide-react";
 import founderImage from "./assets/mia-carr.jpg";
 
 const stats = [
@@ -825,6 +825,10 @@ export default function App() {
                 <div className="contact-row">
                   <Mail className="contact-icon" />
                   <span>admin@softpowerworks.us</span>
+                </div>
+                <div className="contact-row">
+                  <Phone className="contact-icon" />
+                  <a href="tel:+12026810113">202-681-0113</a>
                 </div>
                 <div className="contact-note">
                   Selective engagements for founders, executives, and
